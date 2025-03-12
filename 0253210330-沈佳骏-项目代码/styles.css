@@ -1,0 +1,772 @@
+/* 添加全局动画效果 */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 修改背景和全局样式 */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0d1117, #131c2b, #0d1117);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #fff;
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+}
+
+/* 删除格纹背景 */
+body::before {
+    display: none;
+}
+
+.header {
+    padding: 20px 40px;
+    background: rgba(13, 17, 23, 0.95);
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 183, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 添加头部光效 */
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00a0ff, transparent);
+    animation: headerLight 3s linear infinite;
+}
+
+@keyframes headerLight {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.header h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 32px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    position: relative;
+    padding: 0 150px;
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+/* 添加文字发光效果 */
+.header h1::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    background: linear-gradient(45deg, #00a0ff, #00f2fe, #00a0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titleShine 6s linear infinite;
+    background-size: 200% auto;
+    padding: 0 150px;
+}
+
+/* 添加底部光线效果 */
+.header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent,
+        #00a0ff,
+        #00f2fe,
+        #00a0ff,
+        transparent
+    );
+    animation: titleLine 4s linear infinite;
+}
+
+/* 标题发光动画 */
+@keyframes titleGlow {
+    0% {
+        text-shadow: 0 0 10px rgba(0, 160, 255, 0.3),
+                     0 0 20px rgba(0, 160, 255, 0.3),
+                     0 0 30px rgba(0, 160, 255, 0.3);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(0, 160, 255, 0.5),
+                     0 0 30px rgba(0, 160, 255, 0.5),
+                     0 0 40px rgba(0, 160, 255, 0.5);
+    }
+}
+
+/* 文字渐变动画 */
+@keyframes titleShine {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* 底部光线动画 */
+@keyframes titleLine {
+    0% {
+        transform: translateX(-150%);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(150%);
+        opacity: 0;
+    }
+}
+
+.time {
+    position: absolute;
+    right: 40px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    padding: 8px 20px;
+    background: rgba(0, 150, 255, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 150, 255, 0.3);
+    min-width: 150px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.time:hover {
+    background: rgba(0, 150, 255, 0.2);
+    border-color: rgba(0, 150, 255, 0.5);
+    box-shadow: 0 0 15px rgba(0, 150, 255, 0.3);
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    grid-template-areas: 
+        "ranking charts"
+        "distribution charts"
+        "trend trend";
+    gap: 24px;
+    padding: 24px;
+    margin: 0 auto;
+    max-width: 1800px;
+}
+
+.chart-container {
+    background: rgba(13, 17, 23, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 32px rgba(0, 21, 41, 0.2);
+    border: 1px solid rgba(0, 183, 255, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 添加图表容器发光效果 */
+.chart-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    padding: 2px;
+    background: linear-gradient(45deg, transparent, rgba(0, 150, 255, 0.3), transparent);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.chart-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 21, 41, 0.3);
+    border-color: rgba(0, 150, 255, 0.3);
+}
+
+.chart-title {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 15px 20px;
+    margin: -20px -20px 20px -20px;
+    background: rgba(0, 150, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 150, 255, 0.2);
+    display: flex;
+    align-items: center;
+}
+
+.chart-title::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 16px;
+    background: linear-gradient(to bottom, #00f2fe, #4facfe);
+    margin-right: 8px;
+    border-radius: 2px;
+    box-shadow: 0 0 15px rgba(0, 150, 255, 0.7);
+}
+
+#salesRankingTable {
+    grid-area: ranking;
+    height: auto;
+    min-height: 450px;
+}
+
+.charts-container {
+    grid-area: charts;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+#salesWordCloud,
+#brandPieChart,
+#priceRangeChart {
+    height: 280px;
+}
+
+#salesTrendChart {
+    grid-area: trend;
+    height: 300px;
+}
+
+.ranking-content {
+    height: calc(100% - 80px);
+    overflow-y: auto;
+}
+
+.ranking-header {
+    background: rgba(0, 150, 255, 0.15);
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 50px 130px 180px 120px 120px 100px 120px 200px;
+    padding: 12px 20px;
+    gap: 15px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: rgba(255,255,255,0.9);
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.ranking-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 1px solid rgba(0, 150, 255, 0.1);
+    display: grid;
+    grid-template-columns: 50px 130px 180px 120px 120px 100px 120px 200px;
+    padding: 12px 20px;
+}
+
+.ranking-item:hover {
+    background: rgba(0, 150, 255, 0.15);
+    transform: translateX(10px);
+}
+
+.ranking-item span {
+    color: rgba(255,255,255,0.85);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ranking-item .rank {
+    text-align: center;
+    font-weight: bold;
+}
+
+.ranking-item .sales {
+    text-align: right;
+    color: #52c41a;
+    font-weight: bold;
+}
+
+.ranking-item .price {
+    text-align: right;
+    color: #f5a623;
+}
+
+/* 自定义滚动条样式 */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 150, 255, 0.1);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #00f2fe, #4facfe);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #0088ff, #0055cc);
+}
+
+/* 添加响应式布局 */
+@media screen and (max-width: 1600px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "charts"
+            "ranking"
+            "distribution"
+            "trend";
+    }
+
+    .charts-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    #salesWordCloud,
+    #brandPieChart,
+    #priceRangeChart {
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .dashboard {
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .charts-container {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .ring-chart {
+        width: 180px;
+        height: 180px;
+    }
+
+    .energy-stats {
+        height: auto;
+        min-height: 400px;
+    }
+}
+
+.chart-content {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+
+/* 修改表格列对齐方式 */
+.ranking-header,
+.ranking-item {
+    display: grid;
+    grid-template-columns: 50px 130px 180px 120px 120px 100px 120px 200px;
+    padding: 12px 20px;
+    gap: 15px;
+}
+
+/* 所有列的基本样式 */
+.ranking-header span,
+.ranking-item span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 排名列居中对齐 */
+.ranking-header span:nth-child(1),
+.ranking-item span:nth-child(1) {
+    text-align: center;
+}
+
+/* 品牌、车型、类型、能源列左对齐 */
+.ranking-header span:nth-child(2),
+.ranking-header span:nth-child(3),
+.ranking-header span:nth-child(4),
+.ranking-header span:nth-child(5),
+.ranking-item span:nth-child(2),
+.ranking-item span:nth-child(3),
+.ranking-item span:nth-child(4),
+.ranking-item span:nth-child(5) {
+    text-align: left;
+}
+
+/* 销量、价格列右对齐 */
+.ranking-header span:nth-child(6),
+.ranking-header span:nth-child(7),
+.ranking-item span:nth-child(6),
+.ranking-item span:nth-child(7) {
+    text-align: right;
+}
+
+/* 保修列右移，增加左边距 */
+.ranking-header span:nth-child(8),
+.ranking-item span:nth-child(8) {
+    text-align: left;
+    padding-left: 20px;  /* 添加左内边距 */
+}
+
+/* 销量列的特殊样式 */
+.ranking-item .sales {
+    text-align: right;
+    color: #52c41a;
+    font-weight: bold;
+}
+
+/* 价格列的特殊样式 */
+.ranking-item .price {
+    text-align: right;
+    color: #f5a623;
+}
+
+/* 排名列的特殊样式 */
+.ranking-item .rank {
+    text-align: center;
+    font-weight: bold;
+}
+
+.energy-stats {
+    grid-area: distribution;
+    height: 300px;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    gap: 20px;
+    height: calc(100% - 50px);
+    background: rgba(0, 150, 255, 0.05);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.ring-chart {
+    width: 220px;
+    height: 220px;
+}
+
+.stats-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(0, 150, 255, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 150, 255, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-item:hover {
+    transform: translateX(10px);
+    background: rgba(0, 150, 255, 0.2);
+    border-color: rgba(0, 150, 255, 0.4);
+}
+
+.stat-label {
+    color: rgba(255,255,255,0.85);
+    font-size: 14px;
+}
+
+.stat-value {
+    font-size: 26px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #fff, #00a0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(0, 160, 255, 0.3);
+}
+
+.stat-value.oil {
+    color: #ff6b6b;
+}
+
+.stat-value.electric {
+    color: #4ecdc4;
+}
+
+.stat-value.hybrid {
+    color: #45b7d1;
+}
+
+/* 添加响应式阴影效果 */
+@media (prefers-reduced-motion: no-preference) {
+    .chart-container:hover::after {
+        opacity: 1;
+    }
+}
+
+/* 添加动态背景特效 */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 50% 50%, rgba(0, 150, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 150, 255, 0.1) 0%, transparent 30%),
+        radial-gradient(circle at 20% 80%, rgba(0, 150, 255, 0.1) 0%, transparent 30%);
+    animation: pulseBackground 8s ease-in-out infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* 添加动态网格 */
+.tech-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, rgba(0, 183, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 183, 255, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: -2;
+    animation: gridMove 15s linear infinite;
+    opacity: 0.5;
+}
+
+/* 添加浮动粒子效果 */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(0, 183, 255, 0.7);
+    border-radius: 50%;
+    animation: particleFloat 20s infinite linear;
+    box-shadow: 0 0 10px rgba(0, 183, 255, 0.5);
+}
+
+/* 动画关键帧 */
+@keyframes pulseBackground {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+@keyframes gridMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(50px); }
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(100px, -100px);
+        opacity: 0;
+    }
+}
+
+/* 添加流动光效背景 */
+.light-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -3;
+}
+
+.light-effect::before,
+.light-effect::after {
+    content: '';
+    position: absolute;
+    width: 200vw;
+    height: 200vh;
+    top: -50vh;
+    left: -50vw;
+    background: radial-gradient(circle at center, 
+        rgba(0, 183, 255, 0.25) 0%,
+        rgba(0, 183, 255, 0.2) 20%,
+        rgba(0, 183, 255, 0.15) 40%,
+        transparent 60%);
+    animation: lightMove 20s linear infinite;
+    opacity: 0.8;
+}
+
+.light-effect::after {
+    background: radial-gradient(circle at center, 
+        rgba(66, 220, 255, 0.25) 0%,
+        rgba(66, 220, 255, 0.2) 20%,
+        rgba(66, 220, 255, 0.15) 40%,
+        transparent 60%);
+    animation-duration: 25s;
+    animation-delay: -5s;
+    opacity: 0.6;
+}
+
+/* 添加光线扫描效果 */
+.scan-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(0, 183, 255, 0.15) 48%,
+        rgba(0, 183, 255, 0.2) 50%,
+        rgba(0, 183, 255, 0.15) 52%,
+        transparent 100%);
+    animation: scanMove 6s linear infinite;
+    pointer-events: none;
+    z-index: -2;
+}
+
+/* 添加动态光斑 */
+.glow-spots {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.glow-spot {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at center,
+        rgba(0, 183, 255, 0.3) 0%,
+        rgba(0, 183, 255, 0.2) 30%,
+        rgba(0, 183, 255, 0.1) 50%,
+        transparent 70%);
+    border-radius: 50%;
+    animation: glowFloat 10s infinite;
+    filter: blur(5px);
+}
+
+/* 动画关键帧 */
+@keyframes lightMove {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50px, -50px) rotate(360deg);
+        opacity: 0.5;
+    }
+}
+
+@keyframes scanMove {
+    0% {
+        transform: translateY(-100%) scaleY(1.5);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100%) scaleY(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes glowFloat {
+    0%, 100% {
+        transform: translate(0, 0);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(30px, -30px);
+        opacity: 0.6;
+    }
+}
+
+/* 添加全局光晕效果 */
+.dashboard::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(0, 183, 255, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(66, 220, 255, 0.2) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: -1;
+    animation: glowPulse 8s ease-in-out infinite alternate;
+    opacity: 0.8;
+}
+
+/* 添加新的动画 */
+@keyframes glowPulse {
+    0% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+}
+  

@@ -1,0 +1,352 @@
+{
+  "wordcloud": [
+    {
+      "name": "一汽-大众",
+      "value": 692682
+    },
+    {
+      "name": "一汽丰田",
+      "value": 658502
+    },
+    {
+      "name": "一汽奥迪",
+      "value": 441160
+    },
+    {
+      "name": "一汽红旗",
+      "value": 338234
+    },
+    {
+      "name": "上汽大众",
+      "value": 998568
+    },
+    {
+      "name": "上汽通用五菱",
+      "value": 546854
+    },
+    {
+      "name": "上汽通用别克",
+      "value": 67128
+    },
+    {
+      "name": "东风日产",
+      "value": 550306
+    },
+    {
+      "name": "东风本田",
+      "value": 289608
+    },
+    {
+      "name": "北京奔驰",
+      "value": 452484
+    },
+    {
+      "name": "北京现代",
+      "value": 85075
+    },
+    {
+      "name": "华晨宝马",
+      "value": 516930
+    },
+    {
+      "name": "吉利汽车",
+      "value": 814504
+    },
+    {
+      "name": "吉利银河",
+      "value": 78005
+    },
+    {
+      "name": "奇瑞汽车",
+      "value": 525070
+    },
+    {
+      "name": "小米汽车",
+      "value": 113672
+    },
+    {
+      "name": "广汽丰田",
+      "value": 743297
+    },
+    {
+      "name": "广汽埃安新能源",
+      "value": 312201
+    },
+    {
+      "name": "广汽本田",
+      "value": 361204
+    },
+    {
+      "name": "极氪",
+      "value": 100269
+    },
+    {
+      "name": "比亚迪",
+      "value": 3179262
+    },
+    {
+      "name": "深蓝汽车",
+      "value": 93612
+    },
+    {
+      "name": "特斯拉中国",
+      "value": 649980
+    },
+    {
+      "name": "理想汽车",
+      "value": 482811
+    },
+    {
+      "name": "腾势汽车",
+      "value": 98405
+    },
+    {
+      "name": "蔚来",
+      "value": 74970
+    },
+    {
+      "name": "赛力斯汽车",
+      "value": 346610
+    },
+    {
+      "name": "长城汽车",
+      "value": 319318
+    },
+    {
+      "name": "长安汽车",
+      "value": 652175
+    },
+    {
+      "name": "零跑汽车",
+      "value": 82113
+    },
+    {
+      "name": "领克",
+      "value": 83576
+    }
+  ],
+  "brand_pie": [
+    {
+      "name": "比亚迪",
+      "value": 3179262
+    },
+    {
+      "name": "上汽大众",
+      "value": 998568
+    },
+    {
+      "name": "吉利汽车",
+      "value": 814504
+    },
+    {
+      "name": "广汽丰田",
+      "value": 743297
+    },
+    {
+      "name": "一汽-大众",
+      "value": 692682
+    },
+    {
+      "name": "一汽丰田",
+      "value": 658502
+    },
+    {
+      "name": "长安汽车",
+      "value": 652175
+    },
+    {
+      "name": "特斯拉中国",
+      "value": 649980
+    },
+    {
+      "name": "东风日产",
+      "value": 550306
+    },
+    {
+      "name": "上汽通用五菱",
+      "value": 546854
+    }
+  ],
+  "price_range": [
+    {
+      "range": "0-10万",
+      "value": 6447278,
+      "percentage": 43.71
+    },
+    {
+      "range": "10-20万",
+      "value": 4869491,
+      "percentage": 33.02
+    },
+    {
+      "range": "20-30万",
+      "value": 1979807,
+      "percentage": 13.42
+    },
+    {
+      "range": "30-50万",
+      "value": 1364315,
+      "percentage": 9.25
+    },
+    {
+      "range": "50万以上",
+      "value": 87694,
+      "percentage": 0.59
+    }
+  ],
+  "sales_ranking": [
+    {
+      "rank": 1,
+      "brand": "特斯拉中国",
+      "name": "Model Y",
+      "sales": 478483,
+      "min_price": 24.99,
+      "max_price": 35.49,
+      "car_type": "中型SUV",
+      "energy_type": "纯电动",
+      "insurance": "4年或8万公里"
+    },
+    {
+      "rank": 2,
+      "brand": "比亚迪",
+      "name": "海鸥",
+      "sales": 445851,
+      "min_price": 6.98,
+      "max_price": 8.58,
+      "car_type": "小型车",
+      "energy_type": "纯电动",
+      "insurance": "6年或15万公里"
+    },
+    {
+      "rank": 3,
+      "brand": "东风日产",
+      "name": "轩逸",
+      "sales": 353508,
+      "min_price": 7.36,
+      "max_price": 15.69,
+      "car_type": "紧凑型车",
+      "energy_type": "汽油",
+      "insurance": "3年或10万公里"
+    },
+    {
+      "rank": 4,
+      "brand": "上汽大众",
+      "name": "朗逸",
+      "sales": 322086,
+      "min_price": 6.88,
+      "max_price": 11.19,
+      "car_type": "紧凑型车",
+      "energy_type": "汽油",
+      "insurance": "3年或10万公里"
+    },
+    {
+      "rank": 5,
+      "brand": "比亚迪",
+      "name": "秦PLUS DM",
+      "sales": 306374,
+      "min_price": 7.68,
+      "max_price": 14.28,
+      "car_type": "紧凑型车",
+      "energy_type": "插电式混合动力",
+      "insurance": "6年或15万公里"
+    },
+    {
+      "rank": 6,
+      "brand": "比亚迪",
+      "name": "元PLUS",
+      "sales": 282974,
+      "min_price": 11.58,
+      "max_price": 16.08,
+      "car_type": "紧凑型SUV",
+      "energy_type": "纯电动",
+      "insurance": "6年或15万公里"
+    },
+    {
+      "rank": 7,
+      "brand": "比亚迪",
+      "name": "宋PLUS DM",
+      "sales": 273609,
+      "min_price": 12.68,
+      "max_price": 17.28,
+      "car_type": "紧凑型SUV",
+      "energy_type": "插电式混合动力",
+      "insurance": "6年或15万公里"
+    },
+    {
+      "rank": 8,
+      "brand": "一汽-大众",
+      "name": "速腾",
+      "sales": 250330,
+      "min_price": 9.49,
+      "max_price": 13.99,
+      "car_type": "紧凑型车",
+      "energy_type": "汽油",
+      "insurance": "3年或10万公里"
+    },
+    {
+      "rank": 9,
+      "brand": "上汽通用五菱",
+      "name": "五菱宏光MINIEV",
+      "sales": 248409,
+      "min_price": 2.3,
+      "max_price": 7.28,
+      "car_type": "微型车",
+      "energy_type": "纯电动",
+      "insurance": "3年或12万公里"
+    },
+    {
+      "rank": 10,
+      "brand": "比亚迪",
+      "name": "宋Pro DM",
+      "sales": 244025,
+      "min_price": 9.98,
+      "max_price": 14.98,
+      "car_type": "紧凑型SUV",
+      "energy_type": "插电式混合动力",
+      "insurance": "6年或15万公里"
+    }
+  ],
+  "energy_type": [
+    {
+      "name": "48V轻混系统",
+      "value": 632402
+    },
+    {
+      "name": "增程式",
+      "value": 1005146
+    },
+    {
+      "name": "插电式混合动力",
+      "value": 2010665
+    },
+    {
+      "name": "汽油",
+      "value": 7071011
+    },
+    {
+      "name": "油电混合",
+      "value": 427677
+    },
+    {
+      "name": "纯电动",
+      "value": 3601684
+    }
+  ],
+  "energy_distribution": {
+    "title": "能源类型分布",
+    "data": [
+      {
+        "name": "汽油车",
+        "value": 47.94
+      },
+      {
+        "name": "电动车",
+        "value": 24.42
+      },
+      {
+        "name": "混动车",
+        "value": 20.82
+      }
+    ]
+  }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>汽车数据可视化平台</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-wordcloud@2.1.0/dist/echarts-wordcloud.min.js"></script>
+</head>
+<body>
+    <div class="light-effect"></div>
+    <div class="scan-line"></div>
+    <div class="glow-spots"></div>
+    <div class="tech-grid"></div>
+    <div class="particles">
+        <!-- 通过 JavaScript 动态添加粒子 -->
+    </div>
+    <div class="header">
+        <h1 data-text="汽车数据可视化平台">汽车数据可视化平台</h1>
+        <div class="time" id="currentTime"></div>
+    </div>
+    
+    <div class="dashboard">
+        <!-- 销售排行榜 -->
+        <div class="chart-container" id="salesRankingTable">
+            <div class="chart-title">销售排行榜</div>
+        </div>
+        
+        <!-- 右侧图表组 -->
+        <div class="charts-container">
+            <!-- 词云图 -->
+            <div class="chart-container" id="salesWordCloud">
+                <div class="chart-title">汽车品牌词云图</div>
+                <div class="chart-content"></div>
+            </div>
+            
+            <!-- 品牌销售占比饼图 -->
+            <div class="chart-container" id="brandPieChart">
+                <div class="chart-title">品牌销售占比</div>
+                <div class="chart-content"></div>
+            </div>
+            
+            <!-- 价格区间分布图 -->
+            <div class="chart-container" id="priceRangeChart">
+                <div class="chart-title">价格区间分布</div>
+                <div class="chart-content"></div>
+            </div>
+        </div>
+        
+        <!-- 能源类型分布 -->
+        <div class="chart-container energy-stats" id="energyDistribution">
+            <div class="chart-title">能源类型分布</div>
+            <div class="stats-container">
+                <div class="ring-chart" id="energyChart"></div>
+                <div class="stats-info">
+                    <div class="stat-item">
+                        <div class="stat-label">汽油车销售占比</div>
+                        <div class="stat-value oil" id="oilPercent"></div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">电动车销售占比</div>
+                        <div class="stat-value electric" id="electricPercent"></div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">混合动力占比</div>
+                        <div class="stat-value hybrid" id="hybridPercent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 销售趋势图 -->
+        <div class="chart-container" id="salesTrendChart">
+            <div class="chart-title">销量TOP10车型统计</div>
+            <div class="chart-content"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
